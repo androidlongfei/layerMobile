@@ -1,3 +1,36 @@
+console.log('js', $('#prompt_myself'))
+console.log('html', $('#prompt_myself').html())
+
+
+var style = 'position:fixed; top:50%; left:50%; margin-top:-100px;margin-left:-150px;height: 200px;width:300px; border:1px solid red;'
+var content = '<div class="div1" id="prompt" style="  display: block;   margin-top: 10px;">' +
+  '<div class="weui-cell">' +
+  '<div class="weui-cell__hd"><label style="width: 70px;" class="weui-label">身高</label></div>' +
+  '<div class="weui-cell__bd">' +
+  '<input id="height" style=" " class="weui-input" type="text" placeholder="请输入数字 如：180">' +
+  '</div>' +
+  '<div>厘米</div>' +
+  '</div>' +
+  '<a href="javascript:;" style=" background-color: #0e90d2;   height: 35px;line-height: 35px;" class="weui-btn weui-btn_primary">确 定</a>' +
+  '</div>'
+// content = '<div>1234</div>'
+
+function addHeight() {
+  layer.open({
+    type: 1,
+    title: [
+      '填写身高信息',
+      'background-color: #FF4351; color:#fff;height:45px;text-align:left;line-height:50px;'
+    ],
+    content: content,
+    style: style
+  });
+
+}
+
+// addHeight()
+
+
 $(document).on("click", "#info_box", function() {
     //信息框
     layer.open({
@@ -11,6 +44,23 @@ $(document).on("click", "#info_box", function() {
       content: 'hello layer',
       skin: 'msg',
       time: 2 //2秒后自动关闭
+    });
+  })
+  .on("click", "#prompt_box", function() {
+    //提示
+    layer.open({
+      content: 'hello layer',
+      skin: 'msg',
+      time: 2 //2秒后自动关闭
+    });
+  })
+  .on("click", "#prompt_myself", function() {
+    //提示
+    layer.open({
+      type: 1,
+      anim: 1,
+      content: '<a href="javascript:;" id="ask_box" class="weui-btn weui-btn_primary">询问框</a>',
+      style: 'position:fixed; top:50%; left:50%; margin-top:-100px;margin-left:-100px;width: 100%; height: 200px;width:200px; border:1px solid red;'
     });
   })
   .on("click", "#ask_box", function() {
@@ -38,12 +88,12 @@ $(document).on("click", "#info_box", function() {
     layer.open({
       type: 2,
       content: '加载中',
-      shadeClose:false,
+      shadeClose: false,
       success: function(elem) {
         console.log(elem);
         setTimeout(function() {
           // layer.closeAll()
-          console.log('parent',parent)
+          console.log('parent', parent)
           parent.layer.closeAll();
         }, 2000)
       }
