@@ -1,7 +1,3 @@
-console.log('js', $('#prompt_myself'))
-console.log('html', $('#prompt_myself').html())
-
-
 var style = 'position:fixed; top:50%; left:50%; margin-top:-100px;margin-left:-150px;height: 200px;width:300px; border:1px solid red;'
 var content = '<div class="div1" id="prompt" style="  display: block;   margin-top: 10px;">' +
   '<div class="weui-cell">' +
@@ -13,23 +9,6 @@ var content = '<div class="div1" id="prompt" style="  display: block;   margin-t
   '</div>' +
   '<a href="javascript:;" style=" background-color: #0e90d2;   height: 35px;line-height: 35px;" class="weui-btn weui-btn_primary">确 定</a>' +
   '</div>'
-// content = '<div>1234</div>'
-
-function addHeight() {
-  layer.open({
-    type: 1,
-    title: [
-      '填写身高信息',
-      'background-color: #FF4351; color:#fff;height:45px;text-align:left;line-height:50px;'
-    ],
-    content: content,
-    style: style
-  });
-
-}
-
-// addHeight()
-
 
 $(document).on("click", "#info_box", function() {
     //信息框
@@ -58,9 +37,12 @@ $(document).on("click", "#info_box", function() {
     //提示
     layer.open({
       type: 1,
-      anim: 1,
-      content: '<a href="javascript:;" id="ask_box" class="weui-btn weui-btn_primary">询问框</a>',
-      style: 'position:fixed; top:50%; left:50%; margin-top:-100px;margin-left:-100px;width: 100%; height: 200px;width:200px; border:1px solid red;'
+      title: [
+        '填写身高信息',
+        'background-color: #FF4351; color:#fff;height:45px;text-align:left;line-height:50px;'
+      ],
+      content: content,
+      style: style
     });
   })
   .on("click", "#ask_box", function() {
